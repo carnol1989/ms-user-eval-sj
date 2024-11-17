@@ -1,6 +1,7 @@
 package com.smartjob.cl.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ import lombok.NoArgsConstructor;
  *     </ul>
  * @version 1.0
  */
+@Schema(description = "Phone information.")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -31,16 +33,21 @@ import lombok.NoArgsConstructor;
 @Table(name = "phones")
 public class Phone {
 
+    @Schema(description = "Entity identifier.", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Schema(description = "phone number.", example = "1234567")
     private String number;
 
+    @Schema(description = "City code.", example = "1")
     private String cityCode;
 
+    @Schema(description = "Country code.", example = "57")
     private String contryCode;
 
+    @Schema(description = "User information.", example = "Juan Rodriguez")
     @ManyToOne
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_users_phones"), nullable = false)
     @JsonBackReference

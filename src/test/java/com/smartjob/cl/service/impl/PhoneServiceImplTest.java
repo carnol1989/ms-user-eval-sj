@@ -1,7 +1,6 @@
 package com.smartjob.cl.service.impl;
 
 import com.smartjob.cl.entity.Phone;
-import com.smartjob.cl.exception.ResourceNotFoundExceptionTest;
 import com.smartjob.cl.repository.PhoneRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
