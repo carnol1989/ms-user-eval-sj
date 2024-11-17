@@ -29,3 +29,6 @@ info:
 
 server:
   port: 8081
+
+password:
+  regex: "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$"

@@ -1,5 +1,6 @@
 package com.smartjob.cl.service.impl;
 
+import com.smartjob.cl.config.PasswordConfig;
 import com.smartjob.cl.entity.User;
 import com.smartjob.cl.repository.UserRepository;
 import com.smartjob.cl.service.UserService;
@@ -10,12 +11,16 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private PasswordConfig passwordConfig;
 
     @Override
     public User saveService(User obj) {
@@ -25,6 +30,11 @@ public class UserServiceImpl implements UserService {
 
         if (obj.getPhoneList() != null) {
             obj.getPhoneList().forEach(phone -> phone.setUser(obj));
+        }
+
+        String passwordRegex = passwordConfig.getPasswordRegex();
+        if (obj.getPassword() != null && !Pattern.matches(passwordRegex, obj.getPassword())) {
+            throw new IllegalArgumentException("The password must have at least one uppercase letter, one number and 8 characters.");
         }
 
         if (obj.getId() == null) {
