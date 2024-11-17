@@ -10,6 +10,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -30,6 +31,7 @@ public class UserServiceImpl implements UserService {
     private String jwtSecret;
 
     @Override
+    @Transactional
     public User saveService(User obj) {
         repository.findByEmail(obj.getEmail()).ifPresent(existingUser -> {
             throw new IllegalArgumentException("The mail already registered");
@@ -74,13 +76,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void saveAllService(List<User> listObj) {
         repository.saveAll(listObj);
     }
 
     @Override
-    public void updateService(User obj) {
-        repository.save(obj);
+    @Transactional
+    public User updateService(User obj) {
+        return repository.save(obj);
     }
 
     @Override
