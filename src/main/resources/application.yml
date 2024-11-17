@@ -30,6 +30,12 @@ info:
 server:
   port: 8081
 
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
 password:
   regex: "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$"
 
