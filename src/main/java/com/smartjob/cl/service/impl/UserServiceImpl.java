@@ -4,13 +4,17 @@ import com.smartjob.cl.config.PasswordConfig;
 import com.smartjob.cl.entity.User;
 import com.smartjob.cl.repository.UserRepository;
 import com.smartjob.cl.service.UserService;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.regex.Pattern;
 
 @Service
@@ -21,6 +25,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordConfig passwordConfig;
+
+    @Value("${jwt.secret}")
+    private String jwtSecret;
 
     @Override
     public User saveService(User obj) {
@@ -43,7 +50,7 @@ public class UserServiceImpl implements UserService {
             obj.setLastLogin(LocalDateTime.now());
         }
 
-        obj.setToken(String.valueOf(UUID.randomUUID()));
+        obj.setToken(generateToken(obj.getEmail()));
 
         User savedUser = repository.save(obj);
 
@@ -53,6 +60,17 @@ public class UserServiceImpl implements UserService {
         }
 
         return savedUser;
+    }
+
+    private String generateToken(String email) {
+        byte[] secretKeyBytes = Keys.secretKeyFor(SignatureAlgorithm.HS256).getEncoded();
+
+        return Jwts.builder()
+                .setSubject(email)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + 3600 * 1000))
+                .signWith(SignatureAlgorithm.HS256, secretKeyBytes)
+                .compact();
     }
 
     @Override
