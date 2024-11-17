@@ -18,12 +18,12 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @GetMapping
-    public ResponseEntity<?> getUsersController() {
+    @GetMapping(produces = "application/json")
+    public ResponseEntity<?> getAllUsersController() {
         return ResponseEntity.ok(service.findAllService());
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<?> createdUserController(@Valid  @RequestBody User objReq) {
         try {
             User user = service.saveService(objReq);
