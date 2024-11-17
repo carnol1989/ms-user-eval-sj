@@ -8,7 +8,7 @@ public interface CrudService<T, ID> {
 
     void saveAllService(List<T> listObj);
 
-    void updateService(T obj);
+    T updateService(T obj);
 
     void deleteService(T obj);
 

@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             errors.append(error.getDefaultMessage()).append("; ");
         });
-        ExceptionResponse er = new ExceptionResponse(ex.getMessage(), LocalDateTime.now());
+        ExceptionResponse er = new ExceptionResponse(errors.toString(), LocalDateTime.now());
         return new ResponseEntity<ExceptionResponse>(er, HttpStatus.BAD_REQUEST);
     }
 
