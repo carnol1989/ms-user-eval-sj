@@ -1,8 +1,8 @@
 package com.smartjob.cl.service.impl;
 
 import com.smartjob.cl.entity.Phone;
+import com.smartjob.cl.exception.ResourceNotFoundExceptionTest;
 import com.smartjob.cl.repository.PhoneRepository;
-import com.smartjob.cl.service.PhoneService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,6 +17,24 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * This class test for PhoneServiceImpl. <br/>
+ * <b>Class</b>: {@link PhoneServiceImplTest}<br/>
+ * <b>Copyright</b>: &Copy; 2024 SmartJob. <br/>
+ * <b>Company</b>: SmartJob. <br/>
+ *
+ * @author SmartJob <br/>
+ *     <u>Service Provider</u>: Consultor TI <br/>
+ *     <u>Developed by</u>: <br/>
+ *     <ul>
+ *     <li>Carlos Augusto Nole Machaca</li>
+ *     </ul>
+ *     <u>Changes</u>:<br/>
+ *     <ul>
+ *     <li>Nov 17, 2024 (JAR) Creation class.</li>
+ *     </ul>
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 class PhoneServiceImplTest {
 

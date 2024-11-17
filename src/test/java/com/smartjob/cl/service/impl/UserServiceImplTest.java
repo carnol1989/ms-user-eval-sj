@@ -20,6 +20,24 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * This class test for UserServiceImpl. <br/>
+ * <b>Class</b>: {@link UserServiceImplTest}<br/>
+ * <b>Copyright</b>: &Copy; 2024 SmartJob. <br/>
+ * <b>Company</b>: SmartJob. <br/>
+ *
+ * @author SmartJob <br/>
+ *     <u>Service Provider</u>: Consultor TI <br/>
+ *     <u>Developed by</u>: <br/>
+ *     <ul>
+ *     <li>Carlos Augusto Nole Machaca</li>
+ *     </ul>
+ *     <u>Changes</u>:<br/>
+ *     <ul>
+ *     <li>Nov 17, 2024 (JAR) Creation class.</li>
+ *     </ul>
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
 

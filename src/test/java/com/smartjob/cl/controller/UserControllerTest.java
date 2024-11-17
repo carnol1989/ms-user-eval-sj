@@ -3,7 +3,6 @@ package com.smartjob.cl.controller;
 import com.smartjob.cl.entity.User;
 import com.smartjob.cl.exception.ExceptionResponse;
 import com.smartjob.cl.service.UserService;
-import jakarta.validation.Valid;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -21,6 +19,24 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * This class test for UserController. <br/>
+ * <b>Class</b>: {@link UserControllerTest}<br/>
+ * <b>Copyright</b>: &Copy; 2024 SmartJob. <br/>
+ * <b>Company</b>: SmartJob. <br/>
+ *
+ * @author SmartJob <br/>
+ *     <u>Service Provider</u>: Consultor TI <br/>
+ *     <u>Developed by</u>: <br/>
+ *     <ul>
+ *     <li>Carlos Augusto Nole Machaca</li>
+ *     </ul>
+ *     <u>Changes</u>:<br/>
+ *     <ul>
+ *     <li>Nov 17, 2024 (JAR) Creation class.</li>
+ *     </ul>
+ * @version 1.0
+ */
 @ExtendWith(MockitoExtension.class)
 class UserControllerTest {
 

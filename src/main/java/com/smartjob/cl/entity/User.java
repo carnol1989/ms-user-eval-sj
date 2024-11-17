@@ -2,7 +2,6 @@ package com.smartjob.cl.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.smartjob.cl.config.PasswordConfig;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -11,13 +10,29 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-import java.util.regex.Pattern;
 
+/**
+ * This class entity for store the users. <br/>
+ * <b>Class</b>: {@link User}<br/>
+ * <b>Copyright</b>: &Copy; 2024 SmartJob. <br/>
+ * <b>Company</b>: SmartJob. <br/>
+ *
+ * @author SmartJob <br/>
+ *     <u>Service Provider</u>: Consultor TI <br/>
+ *     <u>Developed by</u>: <br/>
+ *     <ul>
+ *     <li>Carlos Augusto Nole Machaca</li>
+ *     </ul>
+ *     <u>Changes</u>:<br/>
+ *     <ul>
+ *     <li>Nov 16, 2024 (JAR) Creation class.</li>
+ *     </ul>
+ * @version 1.0
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

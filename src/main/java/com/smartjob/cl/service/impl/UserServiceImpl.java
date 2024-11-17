@@ -18,6 +18,24 @@ import java.util.List;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
+/**
+ * This class implements the operations of the UserService. <br/>
+ * <b>Class</b>: {@link UserServiceImpl}<br/>
+ * <b>Copyright</b>: &Copy; 2024 SmartJob. <br/>
+ * <b>Company</b>: SmartJob. <br/>
+ *
+ * @author SmartJob <br/>
+ *     <u>Service Provider</u>: Consultor TI <br/>
+ *     <u>Developed by</u>: <br/>
+ *     <ul>
+ *     <li>Carlos Augusto Nole Machaca</li>
+ *     </ul>
+ *     <u>Changes</u>:<br/>
+ *     <ul>
+ *     <li>Nov 16, 2024 (JAR) Creation class.</li>
+ *     </ul>
+ * @version 1.0
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
